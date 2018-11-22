@@ -1,0 +1,37 @@
+[
+  {
+    "imgUrl": "https://via.placeholder.com/350x150",
+    "camName": "cam_1",
+    "camLoc": "loc_1",
+    "camStatus": "online",
+    "camRule": ["fr", "lpr", "vehicle"]
+  },
+  {
+    "imgUrl": "https://via.placeholder.com/350x150",
+    "camName": "cam_2",
+    "camLoc": "loc_2",
+    "camStatus": "online",
+    "camRule": ["fr"]
+  },
+  {
+    "imgUrl": "https://via.placeholder.com/350x150",
+    "camName": "cam_3",
+    "camLoc": "loc_3",
+    "camStatus": "offline",
+    "camRule": [""]
+  },
+  {
+    "imgUrl": "https://via.placeholder.com/350x150",
+    "camName": "cam_4",
+    "camLoc": "loc_4",
+    "camStatus": "online",
+    "camRule": ["lpr"]
+  },
+  {
+    "imgUrl": "https://via.placeholder.com/350x150",
+    "camName": "cam_5",
+    "camLoc": "loc_5",
+    "camStatus": "offline",
+    "camRule": ["fr", "lpr"]
+  }
+]
