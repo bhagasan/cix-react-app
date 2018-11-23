@@ -5,7 +5,7 @@ import Styled from "styled-components";
 const Image = ({ url }) => {
   return (
     <ImgWrapper>
-      <img src={url} />
+      <img src={url} alt="" />
     </ImgWrapper>
   );
 };

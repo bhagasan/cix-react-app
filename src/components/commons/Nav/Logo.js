@@ -6,7 +6,7 @@ const Logo = ({ url }) => {
   return (
     <Wrapper>
       <Link to="/">
-        <img src={url} />
+        <img src={url} alt="" />
       </Link>
     </Wrapper>
   );
@@ -15,6 +15,8 @@ const Logo = ({ url }) => {
 const Wrapper = Styled.div`
   height: 42px;
   position: relative;
+  text-align: left;
+  margin-bottom: 50px;
 
   img{
     max-width: 100%;

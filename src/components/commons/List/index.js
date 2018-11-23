@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Styled from "styled-components";
 
-import Image from "./Image";
 import Group from "./Group";
 import Text from "./Text";
 
@@ -10,13 +9,13 @@ class List extends Component {
     let table = [];
     Object.keys(item).map(key => {
       if (Array.isArray(item[key])) {
-        table.push(
-          <Group>
-            <Text>{item[key]}</Text>
+        return table.push(
+          <Group key={key}>
+            <Text key={key}>{item[key]}</Text>
           </Group>
         );
       } else {
-        table.push(<Text>{item[key]}</Text>);
+        return table.push(<Text key={key}>{item[key]}</Text>);
       }
     });
     return table;

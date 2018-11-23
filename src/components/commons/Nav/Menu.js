@@ -6,14 +6,30 @@ const Wrapper = Styled.div`
   position: relative;
   display: flex;
   flex: 1 1 auto;
-  align-items: center;
   height: 100%;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  flex-direction: column;
 `;
 
 const Block = Styled.div`
-  &:not(:last-child){
-    margin-right: 30px;
+  position: relative;
+  display: block;
+  text-align: left;
+  &.active{
+    a{
+      background-color: #488b8f;
+      color: white;
+    }
+  }
+  a{
+    padding: 15px 20px;
+    width: 100%;
+    display: inline-block;
+    color: #488b8f;
+    &:hover{
+      background-color: #488b8f;
+      color: white;
+    }
   }
 `;
 
@@ -21,7 +37,11 @@ const Menu = ({ children }) => {
   return (
     <Wrapper>
       {children.map((elment, idx) => {
-        return <Block key={idx}>{elment}</Block>;
+        return (
+          <Block className="block" key={idx}>
+            {elment}
+          </Block>
+        );
       })}
     </Wrapper>
   );
