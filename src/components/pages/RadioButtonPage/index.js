@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Title } from "../../commons/Layout";
 import Input from "../../commons/Input";
 import Label from "../../commons/Input/RadioButton/Label";
 
@@ -29,6 +30,7 @@ class RadioButtonPage extends Component {
 
     return (
       <div>
+        <Title>Radio Button</Title>
         <Input type="radio">
           <Label
             name="cix"

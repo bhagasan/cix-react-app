@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import Nav from "./commons/Nav";
-import Section from "./commons/Section";
+import { Section } from "./commons/Layout";
 
 import HomePage from "./pages/HomePage";
 import RadioButtonPage from "./pages/RadioButtonPage";
