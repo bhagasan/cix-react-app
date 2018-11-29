@@ -9,6 +9,7 @@ const Wrapper = Styled.div`
   height: 100%;
   justify-content: flex-start;
   flex-direction: column;
+  z-index: 2;
 `;
 
 const Block = Styled.div`

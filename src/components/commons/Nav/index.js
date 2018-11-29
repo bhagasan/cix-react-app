@@ -9,21 +9,38 @@ class Nav extends Component {
     sideBarStatus: false
   };
 
-  getButtonStatus = value => {
-    this.setState({ sideBarStatus: value });
+  toggleHandler = () => {
+    this.setState({
+      sideBarStatus: !this.state.sideBarStatus
+    });
   };
+
   render() {
     const { children, logoUrl } = this.props;
     const { sideBarStatus } = this.state;
     return (
       <Wrapper className={sideBarStatus ? "active" : ""}>
+        <Overlay className="overlay" onClick={this.toggleHandler} />
         <Logo url={logoUrl} />
         <Menu>{children}</Menu>
-        <Burger btnStatus={this.getButtonStatus} />
+        <Burger status={sideBarStatus} btnStatus={this.toggleHandler} />
       </Wrapper>
     );
   }
 }
+
+const Overlay = Styled.nav`
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  z-index: -1;
+`;
+
 const Wrapper = Styled.nav`
   position: fixed;
   width: 300px;
@@ -37,8 +54,15 @@ const Wrapper = Styled.nav`
   background-color: #faf9f9;
   transition-duration: .3s;
 
+  .overlay{
+    visibility: hidden;
+  }
+
   &.active{
     left: 0;
+    .overlay{
+      visibility: visible;
+    }
   }
 
   .btn-burger{

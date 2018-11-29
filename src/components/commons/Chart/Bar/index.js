@@ -3,9 +3,11 @@ import ReactEcharts from "echarts-for-react";
 import OptionBar from "./Options";
 import moment from "moment";
 
-const Bar = ({ data, category }) => {
-  const xAxisData = data.class.map(i => i.type);
-  const dataValue = data.class.map(i => i.total);
+const Bar = ({ data, category, dataType }) => {
+  //--> dataType : [history, realtime]
+  //--> category : [classification, time]
+  const xAxisData = data.map(i => i.type);
+  const dataValue = data.map(i => i.total);
   const DataOptions = OptionBar(xAxisData, dataValue);
   const Style = {
     height: "300px",
@@ -36,7 +38,7 @@ const Bar = ({ data, category }) => {
     data.forEach(data => {
       const day = moment(data.date, "YYYY-MM-DD").format("DD");
 
-      if (dateData.indexOf(day) != -1) {
+      if (dateData.indexOf(day) !== -1) {
         dataValues[dateData.indexOf(day)] += parseInt(data.total);
       } else {
         dateData.push(day);

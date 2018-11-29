@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Logo = ({ url }) => {
   return (
-    <Wrapper>
+    <Wrapper className="logo">
       <Link to="/">
         <img src={url} alt="" />
       </Link>

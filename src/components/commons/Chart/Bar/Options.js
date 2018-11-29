@@ -50,10 +50,7 @@ const Option = (xAxisData, dataValue) => ({
       barWidth: barItemWidth,
       itemStyle: {
         normal: {
-          color: function(params) {
-            let colorList = ["#7d6dfc", "#92fc8e", "#ff9a8b", "#4facfe"];
-            return colorList[params.dataIndex];
-          },
+          color: "#7d6dfc",
           barBorderRadius: [15, 15, 0, 0]
         }
       },

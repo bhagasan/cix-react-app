@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import Bar from "./Bar/";
 
-const Echarts = ({ chartType, data, category }) => {
+const Echarts = ({ chartType, data, category, dataType }) => {
   if (chartType === "bar") {
-    return <Bar data={data} category={category} />;
+    return <Bar data={data} category={category} dataType={dataType} />;
   }
   // else if (chartType === "line") {
   //   return <Line dataHistoryLine={dataHistory} category={category} />;
@@ -15,5 +15,5 @@ const Echarts = ({ chartType, data, category }) => {
 
 export default Echarts;
 Echarts.propTypes = {
-  chartType: PropTypes.oneOf(["line", "bar", "pie", "bar-time"])
+  chartType: PropTypes.oneOf(["line", "bar", "pie"])
 };

@@ -7,13 +7,9 @@ class Burger extends Component {
 
     this.state = {
       isClose: true
-      // btnStatusValue: "inactive"
     };
   }
-  // componentDidMount() {
-  //   this.props.btnStatus(this.state.isClose);
-  // }
-  clickHandler = event => {
+  clickHandler = () => {
     this.setState(prevState => ({
       isClose: !prevState.isClose
     }));
@@ -22,10 +18,9 @@ class Burger extends Component {
   };
 
   render() {
-    const { isClose } = this.state;
     return (
       <Button
-        className={`btn-burger ${isClose ? "" : "active"}`}
+        className={`btn-burger ${this.props.status ? "active" : ""}`}
         onClick={this.clickHandler}
       >
         <Icon className="icon" />

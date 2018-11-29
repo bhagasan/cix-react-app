@@ -30,7 +30,7 @@ class RadioButtonPage extends Component {
 
     return (
       <div>
-        <Title>Radio Button</Title>
+        <Title>Input</Title>
         <Input type="radio">
           <Label
             name="cix"
