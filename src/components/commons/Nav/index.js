@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Styled from "styled-components";
 import Logo from "./Logo";
 import Menu from "./Menu";
-import { Burger } from "../Button";
+import Button from "../Button";
 
 class Nav extends Component {
   state = {
@@ -23,7 +23,11 @@ class Nav extends Component {
         <Overlay className="overlay" onClick={this.toggleHandler} />
         <Logo url={logoUrl} />
         <Menu>{children}</Menu>
-        <Burger status={sideBarStatus} btnStatus={this.toggleHandler} />
+        <Button
+          type="burger"
+          dataInput={sideBarStatus}
+          dataAction={this.toggleHandler}
+        />
       </Wrapper>
     );
   }

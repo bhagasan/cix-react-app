@@ -24,7 +24,7 @@ const Bar = ({ data, category, dataType }) => {
       const hour = moment(data.timestamp, "YYYY-MM-DD HH:mm:ss").format(
         "HH:mm"
       );
-      if (hoursData.indexOf(hour) != -1) {
+      if (hoursData.indexOf(hour) !== -1) {
         dataValues[hoursData.indexOf(hour)] += parseInt(data.total);
       } else {
         hoursData.push(hour);
@@ -46,6 +46,7 @@ const Bar = ({ data, category, dataType }) => {
       }
     });
     xData = dateData;
+    console.log(xData);
   }
   return <ReactEcharts option={DataOptions} style={Style} />;
 };

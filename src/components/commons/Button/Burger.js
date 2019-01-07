@@ -14,13 +14,13 @@ class Burger extends Component {
       isClose: !prevState.isClose
     }));
 
-    this.props.btnStatus(this.state.isClose);
+    this.props.dataAction(this.state.isClose);
   };
 
   render() {
     return (
       <Button
-        className={`btn-burger ${this.props.status ? "active" : ""}`}
+        className={`btn-burger ${this.props.dataInput ? "active" : ""}`}
         onClick={this.clickHandler}
       >
         <Icon className="icon" />

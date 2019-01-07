@@ -19,14 +19,14 @@ class ChartsPage extends Component {
   };
 
   render() {
-    const dataClass1 = {
-      ok: true,
-      type: "chart",
-      class: [
-        { total: "378", type: "known" },
-        { total: "1999", type: "unknown" }
-      ]
-    };
+    // const dataClass1 = {
+    //   ok: true,
+    //   type: "chart",
+    //   class: [
+    //     { total: "378", type: "known" },
+    //     { total: "1999", type: "unknown" }
+    //   ]
+    // };
     const dataClass2 = {
       ok: true,
       type: "number",
@@ -54,7 +54,7 @@ class ChartsPage extends Component {
 
     // Filter data
     let dataFiltered = [];
-    if (valueSelected != "all") {
+    if (valueSelected !== "all") {
       dataFiltered = dataClass2.class.filter(i => {
         return i.type === valueSelected;
       });

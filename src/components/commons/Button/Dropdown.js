@@ -6,49 +6,62 @@ class Dropdown extends Component {
     super(props);
 
     this.state = {
-      isCollapsed: false
+      isCollapsed: false,
+      dataOutput: this.props.dataInput[0].key
     };
   }
 
-  clickHanlder = event => {
+  componentDidMount() {
+    this.props.dataOutput(this.props.dataInput[0].key);
+  }
+
+  clickSelectHanlder = event => {
+    this.togglePupup();
+    this.setState({ dataOutput: event.target.id });
+    this.props.dataOutput(event.target.id);
+  };
+  togglePupup = () => {
     this.setState({ isCollapsed: !this.state.isCollapsed });
-    console.log(event.target.id);
   };
   render() {
     const { isCollapsed } = this.state;
-    const data = [
-      {
-        key: "area1",
-        text: "Area 1"
-      },
-      {
-        key: "area2",
-        text: "Area 2"
-      },
-      {
-        key: "area3",
-        text: "Area 3"
-      }
-    ];
+    const { dataInput } = this.props;
+
     return (
       <Wrapper>
-        <Button
-          className="area-selected"
-          onClick={this.clickHanlder}
-          id={data[0].key}
-          selected={true}
-        >
-          {data[0].text}
-          <i className={`icon-caret-${isCollapsed ? "up" : "down"}`} />
-        </Button>
+        {dataInput.map(i => {
+          if (i.key === this.state.dataOutput) {
+            return (
+              <Button
+                className="area-selected"
+                onClick={this.togglePupup}
+                id={i.key}
+                key={i.key}
+              >
+                {i.text}{" "}
+                <i className={`icon-caret-${isCollapsed ? "up" : "down"}`} />
+              </Button>
+            );
+          } else {
+            return null;
+          }
+        })}
         {isCollapsed && (
           <Popup>
-            {data.map(i => {
-              return (
-                <Button key={i.key} onClick={this.clickHanlder} id={i.key}>
-                  {i.text}
-                </Button>
-              );
+            {dataInput.map(i => {
+              if (i.key !== this.state.dataOutput) {
+                return (
+                  <Button
+                    key={i.key}
+                    onClick={this.clickSelectHanlder}
+                    id={i.key}
+                  >
+                    {i.text}
+                  </Button>
+                );
+              } else {
+                return null;
+              }
             })}
           </Popup>
         )}
@@ -60,6 +73,7 @@ class Dropdown extends Component {
 const Wrapper = Styled.div`
   position: relative;
   width: max-content;
+  display: inline-block;
   button{
     display: block;
   }
@@ -90,6 +104,7 @@ const Popup = Styled.div`
   width: 116px;
   border-radius: 7px;
   overflow: hidden;
+  z-index: 2;
   button{
     &:hover{
       background-color: #ccccff;
